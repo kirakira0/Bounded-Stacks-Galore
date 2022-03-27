@@ -83,6 +83,23 @@ char *peek(BoundedStack stack)
     return stack->items[stack->size];
 }
 
+/*
+ * Cleans up any memory allocated when we created the bounded stack.
+ */
+void destroyBoundedStack(BoundedStack stack)
+{
+    // First free items in stack.
+    // while (stack->size > 1)
+    // {
+    //     free(stack->items[stack->size]);
+    //     stack->size--;
+    // }
+    // Then free stack struct.
+    free(stack->items);
+    // Free stack itself.
+    free(stack);
+}
+
 int main()
 {
     struct BS *stack = createBoundedStack(2);
@@ -92,6 +109,11 @@ int main()
     push(stack, "WORLD");
     assert(strcmp(pop(stack), "WORLD") == 0);
     assert(strcmp(pop(stack), "HELLO") == 0);
+
+    push(stack, "A");
+    push(stack, "B");
+    // push(stack, "C");
+    destroyBoundedStack(stack);
 
     return 0;
 }

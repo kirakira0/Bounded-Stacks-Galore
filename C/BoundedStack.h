@@ -10,3 +10,4 @@ bool isEmpty(BoundedStack stack);
 void push(BoundedStack stack, char *item);
 char *pop(BoundedStack stack);
 char *peek(BoundedStack stack);
+void destroyBoundedStack(BoundedStack stack);
