@@ -2,12 +2,12 @@ package Java;
 
 public class BoundedStack {
 
-    final int MAX_CAPACITY = 256;
-    final int MAX_ITEM_LENGTH = 128;
+    private static final int MAX_CAPACITY = 256;
+    private static final int MAX_ITEM_LENGTH = 128;
 
     int size;
-    int capacity;
-    String[] items;
+    final int capacity;
+    final String[] items;
 
     public BoundedStack(int capacity) {
         if (capacity < 0 || capacity > MAX_CAPACITY) {
@@ -30,7 +30,6 @@ public class BoundedStack {
         this.validateNotEmpty();
         this.size -= 1;
         return this.items[size + 1];
-
     }
 
     public String peek() throws Exception {
@@ -49,14 +48,14 @@ public class BoundedStack {
     }
 
     private void validateNotFull() throws Exception {
-        if (this.size >= this.capacity)
+        if (this.size >= this.capacity) {
             throw new Exception("Stack is full.");
-
+        }
     }
 
     private void validateNotEmpty() throws Exception {
-        if (this.size == 0)
+        if (this.size == 0) {
             throw new Exception("Stack is empty.");
+        }
     }
-
 }
