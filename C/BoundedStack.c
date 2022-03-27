@@ -88,13 +88,7 @@ char *peek(BoundedStack stack)
  */
 void destroyBoundedStack(BoundedStack stack)
 {
-    // First free items in stack.
-    // while (stack->size > 1)
-    // {
-    //     free(stack->items[stack->size]);
-    //     stack->size--;
-    // }
-    // Then free stack struct.
+    // Free the stack items.
     free(stack->items);
     // Free stack itself.
     free(stack);
@@ -112,7 +106,6 @@ int main()
 
     push(stack, "A");
     push(stack, "B");
-    // push(stack, "C");
     destroyBoundedStack(stack);
 
     return 0;
