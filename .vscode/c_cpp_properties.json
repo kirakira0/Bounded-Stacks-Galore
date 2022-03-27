@@ -3,7 +3,8 @@
         {
             "name": "Mac",
             "includePath": [
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "/usr/local/Cellar/xz/5.2.5/include/lzma"
             ],
             "defines": [],
             "macFrameworkPath": [

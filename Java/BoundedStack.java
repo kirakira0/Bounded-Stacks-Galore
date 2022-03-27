@@ -1,4 +1,4 @@
-package JavaBoundedStack;
+package Java;
 
 public class BoundedStack {
 
@@ -58,4 +58,5 @@ public class BoundedStack {
         if (this.size == 0)
             throw new Exception("Stack is empty.");
     }
+
 }

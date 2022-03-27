@@ -21,24 +21,23 @@ struct StackEmptyException : public exception
 
 class Stack
 {
-
     int top;
     int capacity;
     unique_ptr<string[]> items;
 
-    void validateNotFull()
+    void validate_not_full()
     {
         if (top == capacity)
             throw StackFullException();
     }
 
-    void validateNotEmpty()
+    void validate_not_empty()
     {
         if (top == 0)
             throw StackEmptyException();
     }
 
-    void validateItemLength(string item)
+    void validate_item_length(string item)
     {
         if (item.length() <= 0 || item.length() > MAX_ITEM_LENGTH)
         {
@@ -61,14 +60,14 @@ public:
 
     void push(string item)
     {
-        validateItemLength(item);
-        validateNotFull();
+        validate_item_length(item);
+        validate_not_full();
         items[top++] = item;
     }
 
     string pop()
     {
-        validateNotEmpty();
+        validate_not_empty();
         string valueToReturn = items[--top];
         items[top] = "";
         return valueToReturn;
